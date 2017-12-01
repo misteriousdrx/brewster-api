@@ -1,7 +1,7 @@
 var express		= require('express');
 var five		= require('johnny-five');
 var bodyParser	= require('body-parser');
-var Controlador = require('./models/controlador');
+var Controlador = require('./models/Controlador');
 
 var app			= express();
 
@@ -110,31 +110,38 @@ app.get('/controlador/:id/temperaturas/historico', function(req, res){
 	var temperaturas = [
 		{
 			'data' : '19/11',
-			'temperaturaMinima' : 28
+			'minima' : 28,
+			'maxima' : 31
 		},
 		{
 			'data' : '20/11',
-			'temperatura' : 28.5
+			'minima' : 28.5,
+			'maxima' : 30.5
 		},
 		{
 			'data' : '21/11',
-			'temperatura' : 29
+			'minima' : 28.7,
+			'maxima' : 31
 		},
 		{
 			'data' : '22/11',
-			'temperatura' : 30
+			'minima' : 29,
+			'maxima' : 31.8
 		},
 		{
 			'data' : '23/11',
-			'temperatura' : 30.5
+			'minima' : 29.3,
+			'maxima' : 30
 		},
 		{
 			'data' : '24/11',
-			'temperatura' : 30
+			'minima' : 28,
+			'maxima' : 31
 		},
 		{
 			'data' : '20/11',
-			'temperatura' : 31
+			'minima' : 28,
+			'maxima' : 31
 		}
 	];
 
