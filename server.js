@@ -61,14 +61,24 @@ app.get('/', function(req, res){
 });
 
 
+app.get('/controlador/:id/status', function(req, res){
+	var retorno = {
+		status : 'Online'
+	};
+	
+	res.status(200).send(retorno);
+});
+
 app.get('/controlador/:id/temperaturas', function(req, res){
 	var controlador = new Controlador();
 
-	res.send(controlador.getTemperatura());
-});
+	var retorno = {
+		ideal : 30.1,
+		minima : 29.0,
+		maxima : 31
+	};
 
-app.get('/controlador/:id/status', function(req, res){
-	res.status(200).send('Online');
+	res.status(200).send(retorno);
 });
 
 app.get('/controlador/:id/temperaturas/hoje', function(req, res){
@@ -99,7 +109,7 @@ app.get('/controlador/:id/temperaturas/hoje', function(req, res){
 		},
 		{
 			'hora' : '15:00',
-			'temperatura' : 31
+			'temperatura' : 35
 		}
 	];
 
@@ -150,7 +160,6 @@ app.get('/controlador/:id/temperaturas/historico', function(req, res){
 
 
 
-
 app.post('/controlador/:id/temperatura', function(req, res){
 	res.status(200).send('teste');
 });
@@ -159,16 +168,13 @@ app.post('/controlador/:id/temperatura', function(req, res){
 
 
 
-
-
-
-app.get('/lcd/:texto', function(req, res){
-	console.log(req.params.texto);
-	lcd.clear();
-	lcd.print(req.params.texto);
+// app.get('/lcd/:texto', function(req, res){
+// 	console.log(req.params.texto);
+// 	lcd.clear();
+// 	lcd.print(req.params.texto);
 	
-	res.send(200);
-})
+// 	res.send(200);
+// })
 
 // -------------------------------------------------------------------------------------------
 
