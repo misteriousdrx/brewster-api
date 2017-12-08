@@ -73,9 +73,10 @@ app.get('/controlador/:id/temperaturas', function(req, res){
 	var controlador = new Controlador();
 
 	var retorno = {
-		ideal : 30.1,
-		minima : 29.0,
-		maxima : 31
+		ideal	: 30.1,
+		minima	: 29.0,
+		maxima	: 31,
+		atual	: 30
 	};
 
 	res.status(200).send(retorno);
